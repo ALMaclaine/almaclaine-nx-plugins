@@ -1,0 +1,52 @@
+{
+  "migrations": [
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.0",
+      "description": "Remove @nrwl/cli.",
+      "implementation": "./src/migrations/update-16-0-0/remove-nrwl-cli",
+      "package": "nx",
+      "name": "16.0.0-remove-nrwl-cli"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.0",
+      "description": "Replace `dependsOn.projects` with {self} or {dependencies} tokens so that it matches the new expected formatting.",
+      "implementation": "./src/migrations/update-16-0-0/update-depends-on-to-tokens",
+      "package": "nx",
+      "name": "16.0.0-tokens-for-depends-on"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.0",
+      "description": "Replace @nrwl/nx-cloud with nx-cloud",
+      "implementation": "./src/migrations/update-16-0-0/update-nx-cloud-runner",
+      "package": "nx",
+      "name": "16.0.0-update-nx-cloud-runner"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nrwl/workspace with @nx/workspace",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nrwl/workspace",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "version": "16.0.0-beta.4",
+      "description": "Generates a plugin called 'workspace-plugin' containing your workspace generators.",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-16-0-0/move-workspace-generators-to-local-plugin",
+      "package": "@nrwl/workspace",
+      "name": "16-0-0-move-workspace-generators-into-local-plugin"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nrwl/js with @nx/js",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nrwl/js",
+      "name": "update-16-0-0-add-nx-packages"
+    }
+  ]
+}
