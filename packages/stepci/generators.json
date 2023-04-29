@@ -4,11 +4,6 @@
       "factory": "./src/generators/generate/generator",
       "schema": "./src/generators/generate/schema.json",
       "description": "generate generator"
-    },
-    "init": {
-      "factory": "./src/generators/init/generator",
-      "schema": "./src/generators/init/schema.json",
-      "description": "init generator"
     }
   }
 }
