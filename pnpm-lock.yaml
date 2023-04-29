@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@almaclaine/nx':
-    specifier: ^0.0.2
-    version: 0.0.2
+    specifier: ^0.0.3
+    version: 0.0.3
   '@nx/devkit':
     specifier: 16.0.1
     version: 16.0.1(nx@16.0.1)
@@ -96,8 +96,8 @@ devDependencies:
 
 packages:
 
-  /@almaclaine/nx@0.0.2:
-    resolution: {integrity: sha512-JPKTlfaCCVAU2CURH7QMmNAPt4fOzHKw727A3CLX+m5mdh70y2qq/4ar8VZ2YWwfDHiHsHuZt5wfs3gSf6N5UA==}
+  /@almaclaine/nx@0.0.3:
+    resolution: {integrity: sha512-FiNB/A0XfglkbnCFyiyGNGiHJWh1EecZvDiTFGn3WjYJNqg3CVq1o+6JidwNoDPcfwBg/vUoxzTz7Qoun7nYXw==}
     dependencies:
       '@almaclaine/option': 0.0.17
     dev: false
