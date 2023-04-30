@@ -40,10 +40,12 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
+        "outputFile": "dist/packages/stepci/lint-output.txt",
         "lintFilePatterns": [
           "packages/stepci/**/*.ts",
           "packages/stepci/package.json",
-          "packages/stepci/generators.json"
+          "packages/stepci/generators.json",
+          "packages/stepci/executors.json"
         ]
       }
     },

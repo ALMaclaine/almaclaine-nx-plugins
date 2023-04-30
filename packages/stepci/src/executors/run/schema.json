@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "Run executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "type": "string",
+      "description": "Workflow to run",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Enter workflow to run (default workflow.yml)?"
+    }
+  },
+  "required": []
+}
