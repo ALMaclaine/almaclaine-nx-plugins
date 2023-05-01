@@ -11,7 +11,12 @@ export default async function runExecutor(
 ) {
   logger.info('Run stepci run executor');
   const workflow = options.workflow || 'workflow';
-  const path = resolve(context.projectName, `${workflow}.yml`);
+  const projectName = context.projectName;
+  const { sourceRoot, projectType } = context.workspace.projects[projectName];
+  if (projectType !== 'application') {
+    logger.error('stepci-run can only be used with applications');
+  }
+  const path = resolve(context.cwd, sourceRoot, `${workflow}.yml`);
   try {
     logger.info(`Running workflow ${workflow}`);
     const { stdout, stderr } = await execa(`stepci run ${path}`);
