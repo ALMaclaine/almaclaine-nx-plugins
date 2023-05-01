@@ -24,7 +24,7 @@ export default async function (tree: Tree, { name }: InitGeneratorSchema) {
     targets: {
       ...targets,
       'stepci-run': {
-        executor: '@almaclaine/nx-stepci:stepci-run',
+        executor: 'nx-stepci:stepci-run',
         options: {},
       },
     },
