@@ -11,7 +11,7 @@ export default async function runExecutor(
 ) {
   logger.info('Run stepci run executor');
   const workflow = options.workflow || 'workflow';
-  const path = resolve(context.cwd, `${workflow}.yml`);
+  const path = resolve(context.projectName, `${workflow}.yml`);
   try {
     logger.info(`Running workflow ${workflow}`);
     const { stdout, stderr } = await execa(`stepci run ${path}`);
@@ -21,6 +21,8 @@ export default async function runExecutor(
     if (e.stderr.includes('not found')) {
       logger.error('stepci not found, install it and ensure it is on the path');
       return;
+    } else {
+      logger.error(e);
     }
   }
   return {
