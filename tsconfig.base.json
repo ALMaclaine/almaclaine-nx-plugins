@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@almaclaine/stepci": ["packages/stepci/src/index.ts"]
+      "@almaclaine/nx-stepci": ["packages/nx-stepci/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

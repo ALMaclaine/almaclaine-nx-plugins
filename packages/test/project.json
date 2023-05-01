@@ -71,6 +71,10 @@
           "codeCoverage": true
         }
       }
+    },
+    "stepci-run": {
+      "executor": "@almaclaine/stepci:stepci-run",
+      "options": {}
     }
   },
   "tags": []

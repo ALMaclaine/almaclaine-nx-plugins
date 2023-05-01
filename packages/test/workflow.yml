@@ -1,0 +1,449 @@
+version: "1.0"
+name: Swagger Petstore - OpenAPI 3.0
+config:
+  http:
+    baseURL: https://petstore3.swagger.io/api/v3
+tests:
+  pet:
+    name: Everything about your Pets
+    steps:
+      - id: updatePet
+        name: Update an existing pet
+        http:
+          url: /pet
+          method: PUT
+          headers:
+            Content-Type: application/json
+            accept: application/json
+          json:
+            name: id consectetur
+            photoUrls:
+              - ea laborum
+              - nostrud cupidatat
+              - minim velit esse
+              - qui id fugiat dolore
+              - do adipisicing irure tempor ex
+            status: sold
+            id: -50528087
+            category:
+              id: -20648531
+              name: eiusmod eu
+              nulla8: 43332102
+              cupidatat_57e: true
+              et4_: -24845825.31484452
+            tags:
+              - consequat_c: false
+                ea_ce: 49555528.82409039
+                deserunt9_2: 42662051
+                eu5d2: exercitation
+          check:
+            status: 200
+            schema:
+              $ref: "#/components/schemas/Pet"
+      - id: addPet
+        name: Add a new pet to the store
+        http:
+          url: /pet
+          method: POST
+          headers:
+            Content-Type: application/json
+            accept: application/json
+          json:
+            name: in
+            photoUrls:
+              - veniam enim fugiat et consequat
+              - nostrud aute nisi officia dolore
+              - non dolore culpa dolor
+            category:
+              name: elit Ut Excepteur
+              id: 15015808
+              sit_5: -55640802
+              quisf9c: in aliquip laborum
+              cillum_7: reprehenderit aliquip Lorem do elit
+            id: 71567045
+            status: available
+            tags:
+              - id: -25139156
+                name: mollit
+              - id: 48940967
+                name: occaecat et do nulla ipsum
+              - id: -53642476
+                name: in sit cupidatat voluptate
+                ad__b: -72302314.6973802
+                nulla4: id amet commodo dolore
+          check:
+            status: 200
+            schema:
+              $ref: "#/components/schemas/Pet"
+      - id: findPetsByStatus
+        name: Finds Pets by status
+        http:
+          url: /pet/findByStatus
+          method: GET
+          params:
+            status: available
+          check:
+            status: 200
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Pet"
+      - id: findPetsByTags
+        name: Finds Pets by tags
+        http:
+          url: /pet/findByTags
+          method: GET
+          params:
+            tags:
+              - amet
+          check:
+            status: 200
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Pet"
+      - id: getPetById
+        name: Find pet by ID
+        http:
+          url: /pet/48370989
+          method: GET
+          check:
+            status: 200
+            schema:
+              $ref: "#/components/schemas/Pet"
+      - id: updatePetWithForm
+        name: Updates a pet in the store with form data
+        http:
+          url: /pet/-65253431
+          method: POST
+          params:
+            name: Lorem anim
+            status: culpa mollit aliqua
+      - id: deletePet
+        name: Deletes a pet
+        http:
+          url: /pet/75213491
+          method: DELETE
+          headers:
+            api_key: Ut nisi qui laboris Excepteur
+      - id: uploadFile
+        name: uploads an image
+        http:
+          url: /pet/4822103/uploadImage
+          method: POST
+          params:
+            additionalMetadata: id proident
+          headers:
+            Content-Type: application/octet-stream
+          body:
+            file: file.txt
+          check:
+            status: 200
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+  store:
+    name: Access to Petstore orders
+    steps:
+      - id: getInventory
+        name: Returns pet inventories by status
+        http:
+          url: /store/inventory
+          method: GET
+          check:
+            status: 200
+            schema:
+              type: object
+              additionalProperties:
+                type: integer
+                format: int32
+      - id: placeOrder
+        name: Place an order for a pet
+        http:
+          url: /store/order
+          method: POST
+          headers:
+            Content-Type: application/json
+            accept: application/json
+          json:
+            status: delivered
+            shipDate: "1952-06-18T06:40:45.0Z"
+            id: 16016759
+            complete: false
+          check:
+            status: 200
+            schema:
+              $ref: "#/components/schemas/Order"
+      - id: getOrderById
+        name: Find purchase order by ID
+        http:
+          url: /store/order/-59043392
+          method: GET
+          check:
+            status: 200
+            schema:
+              $ref: "#/components/schemas/Order"
+      - id: deleteOrder
+        name: Delete purchase order by ID
+        http:
+          url: /store/order/-54106255
+          method: DELETE
+  user:
+    name: Operations about user
+    steps:
+      - id: createUser
+        name: Create user
+        http:
+          url: /user
+          method: POST
+          headers:
+            Content-Type: application/json
+            accept: application/json
+          json:
+            password: sit Ut
+            email: tempor culpa eu id
+            phone: aliquip labore dolor exercitation
+            firstName: mollit sit in sint adipisicing
+            sed_ea7: false
+            nostrud6: 51264474
+            laborumb6b: true
+            ullamco_8: -72951204.7366986
+            Excepteur8: 3991761
+            amet7b7: Duis sit irure aliqua in
+            commodo_3: 57457276.53606233
+      - id: createUsersWithListInput
+        name: Creates list of users with given input array
+        http:
+          url: /user/createWithList
+          method: POST
+          headers:
+            Content-Type: application/json
+            accept: application/json
+          json:
+            - email: nostrud eu
+              firstName: incididunt
+              password: sed anim in
+              userStatus: -29300325
+            - userStatus: -94174443
+              lastName: reprehenderit
+              email: quis
+              est2_: 13272265
+          check:
+            status: 200
+            schema:
+              $ref: "#/components/schemas/User"
+      - id: loginUser
+        name: Logs user into the system
+        http:
+          url: /user/login
+          method: GET
+          params:
+            username: in dolore
+            password: adipisicing sit et pariatur
+          check:
+            status: 200
+            schema:
+              type: string
+      - id: logoutUser
+        name: Logs out current logged in user session
+        http:
+          url: /user/logout
+          method: GET
+      - id: getUserByName
+        name: Get user by user name
+        http:
+          url: /user/velit in in Ut
+          method: GET
+          check:
+            status: 200
+            schema:
+              $ref: "#/components/schemas/User"
+      - id: updateUser
+        name: Update user
+        http:
+          url: /user/minim dolor incididunt sit
+          method: PUT
+          headers:
+            Content-Type: application/json
+            accept: application/json
+          json:
+            userStatus: 1610292
+            phone: velit aute laboris Ut ullamco
+            password: sit dolore dolor exercitation dolor
+            firstName: ad minim laborum
+      - id: deleteUser
+        name: Delete user
+        http:
+          url: /user/deserunt
+          method: DELETE
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        petId:
+          type: integer
+          format: int64
+          example: 198772
+        quantity:
+          type: integer
+          format: int32
+          example: 7
+        shipDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+          description: Order Status
+          example: approved
+          enum:
+            - placed
+            - approved
+            - delivered
+        complete:
+          type: boolean
+      xml:
+        name: order
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 100000
+        username:
+          type: string
+          example: fehguy
+        address:
+          type: array
+          xml:
+            name: addresses
+            wrapped: true
+          items:
+            $ref: "#/components/schemas/Address"
+      xml:
+        name: customer
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+          example: 437 Lytton
+        city:
+          type: string
+          example: Palo Alto
+        state:
+          type: string
+          example: CA
+        zip:
+          type: string
+          example: "94301"
+      xml:
+        name: address
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: Dogs
+      xml:
+        name: category
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        username:
+          type: string
+          example: theUser
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: James
+        email:
+          type: string
+          example: john@email.com
+        password:
+          type: string
+          example: "12345"
+        phone:
+          type: string
+          example: "12345"
+        userStatus:
+          type: integer
+          description: User Status
+          format: int32
+          example: 1
+      xml:
+        name: user
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+      xml:
+        name: tag
+    Pet:
+      required:
+        - name
+        - photoUrls
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        name:
+          type: string
+          example: doggie
+        category:
+          $ref: "#/components/schemas/Category"
+        photoUrls:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: photoUrl
+        tags:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            $ref: "#/components/schemas/Tag"
+        status:
+          type: string
+          description: pet status in the store
+          enum:
+            - available
+            - pending
+            - sold
+      xml:
+        name: pet
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+      xml:
+        name: "##default"

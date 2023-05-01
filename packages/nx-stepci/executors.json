@@ -1,6 +1,6 @@
 {
   "executors": {
-    "run": {
+    "stepci-run": {
       "implementation": "./src/executors/run/executor",
       "schema": "./src/executors/run/schema.json",
       "description": "run executor"
